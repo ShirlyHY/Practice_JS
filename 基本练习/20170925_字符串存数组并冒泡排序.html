@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>字符串存进数组并冒泡排序</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>     
+    <script type="text/javascript">
+        //<![CDATA[
+
+       
+        function SortByASC(str) {
+            var L = new Array;
+            var L_ASC = new Array;
+            var L_Sort = new Array;
+            L = str.split("");
+            for (i = 0; i < L.length; i++) {
+                L_ASC[i] = L[i].charCodeAt();
+            }
+            alert(+"字符串的ASCII码数组："+L_ASC.join("-") );
+            /* L_ASC.sort();//使用自带sort()函数
+            L_ASC.sort(function (a, b) {
+                return a - b;
+            })*/
+            //使用自定义升序冒泡排序
+            function BubbleSort(array) {               
+                    var len = array.length;
+                    for (i = 0; i < len-1; i++) {
+                        for (j = 0; j < len - 1 - i; j++) {
+                            if (array[j] > array[j + 1]) {
+                                var temp = array[j];
+                                array[j] = array[j + 1];
+                                array[j + 1] = temp;
+                            }
+                        }
+                    }
+                   
+
+                }             
+       
+            BubbleSort(L_ASC);             // 对ASCII码数组排序        
+            alert("排序后的ASCII码数组：" + L_ASC.join("--"));
+            for (i = 0; i < L_ASC.length; i++) {
+                L_Sort[i] = String.fromCharCode(L_ASC[i]);//将排序后的ASCII码数组转换成字符
+            }
+            alert(L_Sort.join(""));
+        }
+        SortByASC("Hello world");
+        //]]>
+    </script>
+</head>
+
+
+
+<body >
+   
+</body>
+</html>
