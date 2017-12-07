@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>5-4Array_filter_callback_function</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>
+</head>
+<body>
+	<script type="text/javascript">
+		//<![CDATA[
+
+        function checkColor(element, index, array) {
+            return (element >= 0 && element<=255);
+        }
+
+        function checkCount(element, index, array) {
+            return (element.length == 3);
+            document.writeln("checkCount");
+        }
+
+        var colors = new Array();
+        colors[0] = [0, 262, 255];
+        colors[1] = [255, 255, 255];
+        colors[2] = [255, 0, 0];
+        colors[3] = [0, 255, 0];
+        colors[4] = [0, 0, 255];
+        colors[5] = [-5, 999, 255];
+
+        var testedColors = new Array();
+        for (var i in colors) {
+            testedColors[i] = colors[i].filter(checkColor);
+          //  document.writeln("checkColor");
+
+        }
+
+
+
+        //    var newTested = testedColors.filter(checkCount);
+        var newTested = new Array();
+        for (i in testedColors) {
+            document.writeln("check");
+            newTested[i] = testedColors[i].filter(checkCount);
+
+        }
+    
+        for (i in newTested) {
+             document.writeln(newTested[i]+"<br/>");
+        }
+
+
+		//]]>
+	</script>
+
+</body>
+
+</html>

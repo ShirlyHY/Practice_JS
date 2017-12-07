@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>9-2Cross_Window_Comunication</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>
+   
+    
+</head>
+<body >
+    <script type="text/javascript">
+        //<![CDATA[
+        window.onload = setObjects;
+
+        function setObjects() {
+            document.forms[0].elements[0].focus();
+
+            var evtObject=document.getElementById("panicbutton");
+
+            if (evtObject.addEventListener) {
+                evtObject.addEventListener("click",openHelp,false);
+            } else if (evtObject.attachEvent) {
+                evtObject.attachEvent("onclick", openHelp);
+            } else {
+                evtObject.onclick = openHelp;
+            }
+
+        }
+
+        function openHelp(x) {
+            var optionString = "width=200,height=100,menubar=no,toolbar=no,scrollbars=no,location=no,resizeable=no";
+            var helpWindow = window.open("9-3Helpful_Information.html", "test", optionString);
+            helpWindow.focus();
+            helpWindow.moveTo(x.screenX, x.screenY);
+            return false;
+
+        }
+
+        //]]>
+    </script>
+    <form name="currentForm">
+        Your Name:<input type="text" size="50" id="Name" />
+    </form>
+    <div id="panicbutton" style="width:150px;height:20px;background-color:#f00;padding:5px;margin:10px auto">
+        Push for Help
+    </div>
+
+</body>
+
+</html>

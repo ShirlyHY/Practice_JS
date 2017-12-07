@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>20171001</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>     
+    <script type="text/javascript">
+        //<![CDATA[
+//*****************在给定数组中查找元素个数*************************
+        var arr= prompt("输入数组:").split(",");//Prompt()方法返回的字符串，需要转为数组格式
+       
+        function SumArray(arr) {         
+            var result = 0;
+            if (!(arr instanceof Array)) {
+                alert("需要输入数组类型");
+            }
+            else {
+                for (i = 0; i < arr.length;i++){                    
+                    result = result + Number(arr[i]);
+                }
+            }
+            return result;
+
+        }
+        alert(SumArray(arr));
+
+
+        //]]>
+    </script>
+</head>
+
+
+
+<body >
+   
+</body>
+</html>

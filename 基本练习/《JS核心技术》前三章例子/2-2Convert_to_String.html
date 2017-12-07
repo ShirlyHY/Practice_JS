@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html PUBLIC "-//w3c//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Conver Object to String</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+   
+</head>
+<body onload="testScope(); global2Print();globalPrint()">
+    <script type="text/javascript">
+        //<![CDATA[
+        var sOne = escape("http://oreilly.com");
+        document.writeln("<p>" + sOne + "</p>");
+        var sTwo = escape("http://burningbird.net/index.php?pagename=$1&page=$2");
+        document.writeln("<p>"+sTwo+"</p>");
+
+        //]]>
+
+
+    </script>
+
+</body>
+</html>

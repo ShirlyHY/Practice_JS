@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>9-3Helpful_Information</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>
+   
+    
+</head>
+<body >
+    <p>Helpful_Information.</p>
+    <script type="text/javascript">
+        //<![CDATA[
+        document.writeln("Hello,1!/n");
+        var nmStr = opener.document.forms[0].elements[0].textContent;//未读取到表单元素！！！？？？
+        
+        document.writeln("Hello" + nmStr + "!");
+        document.writeln("Hello,2!/n");
+
+
+        //]]>
+    </script>
+    <p><a href="javascript:self.close();opener.resizeTo('100','100')">Close Window</a></p>
+
+</body>
+
+</html>

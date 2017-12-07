@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html PUBLIC "-//w3c//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Nested Indented Conditional statements</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script type="text/javascript">
+        //<![CDATA[
+        var prefChoice = 1;
+        var stateChoice = 'OR';
+        var genderChoice = 'F';
+
+        if (prefChoice == 1) {
+            alert("You've picked option1.Here is what will happen...");
+
+            if (stateChoice == 'OR') {
+                alert("You've picked 1 and you're from Oregon");
+
+                if(genderChoice=='M'){
+                    alert("You've picked 1 and you're from Oregon and you're a man.");
+
+                }//innermost block
+
+            }//middle block
+        
+        }//outer block
+            //]]>
+
+    </script>
+        </head>
+        <body >          
+</body>
+<p> Imagine a form with five fields and a button here...</p>
+</html>

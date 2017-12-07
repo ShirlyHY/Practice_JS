@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>6-7Capture_Bubble</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>
+    <script type="text/javascript">
+        //<![CDATA[
+       
+        function clickme(evnt) {
+            evnt = evnt ? evnt : window.event;
+            alert(evnt.target + "  " + evnt.type);
+            alert("Can be canceled? " + evnt.cancelable);
+            alert("Bubbling?" + evnt.bubbles);
+            alert(evnt.timeStamp);
+
+        }
+
+        window.onload = setup;
+        window.onunload = cleanup;
+
+        function setup(evnt) {
+            var evtObject = document.getElementById("clickme");
+
+            if (evtObject.addEventListener) {
+                document.addEventListener("click", clickme, false);                
+            } else if (evtObject.attachEvent) {
+                evtObject.attachEvent("onclick",clickme);
+            } else if (evtObject.onclick) {
+                evtObject.onclick = clickme;
+            }
+
+        }
+
+        function cleanup() {
+            var evtObject = document.getElementById("clickme");
+            if (evtObject.detachEvent) {
+                evtObject.detachEvent("clickme",clickme);
+            }
+
+        }
+        
+        //]]>
+    </script>
+
+
+</head>
+<body >
+	<div id="clickme" style="background-color:#ff0;width:200px;height:200px;padding:20px">
+        Click Me
+    </div>
+
+</body>
+
+</html>

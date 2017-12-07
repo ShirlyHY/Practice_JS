@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//w3c//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Using Binary Flags</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script type="text/javascript">
+        //<![CDATA[
+        var FIELD_A = 0x1;
+        var FIELD_B = 0x2;
+        var FIELD_C = 0x4;
+        var FIELD_D = 0x8;
+        var FIELD_E = 0x10;
+
+        var fieldsSet = FIELD_A | FIELD_C | FIELD_E;
+
+        if ((fieldsSet & FIELD_A) && (fieldsSet & FIELD_C)) {
+            alert("Fields A and C are set");
+            alert(fieldsSet & FIELD_C );
+
+        }
+
+        //]]>
+
+    </script>
+        </head>
+        <body >          
+</body>
+<p> Imagine a form with five fields and a button here...</p>
+</html>

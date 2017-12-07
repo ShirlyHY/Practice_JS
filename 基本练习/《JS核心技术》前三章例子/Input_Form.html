@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html PUBLIC "-//w3c//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0051)file:///D:/Document/JavaScript/Capture_Bubble.html? -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Capture_Keydown </title>
+   //有Bug，提交后没有显示用户选项
+    <script type="text/javascript">
+        //<![CDATA[
+
+		if(window.addEventListener){
+		    window.addEventListener('load', setupEvents, false);
+		}
+		else if (window.attachEvent) {
+		    window.attachEvent("onload", setupEvents);
+		}
+		else {
+		    window.onload = setupEvents;
+		}
+		function setupEvents(evnt) {
+		    document.someForm.selectOpts.onsubmit = checkForm;
+		}
+		function checkForm(evnt) {
+
+		    var opts = document.someForm.selectOpts.options;
+
+		    for (var i = 0; i < opts.length;i++){
+		        if(opts[i].selected){
+		            alert(opts[i].text+" "+opts[i].value);
+		        }
+		    }
+		    return false;
+		}
+		//]]>
+    </script>
+</head>
+<body>
+<form name="someForm">
+    <select name="selectOpts" multiple>
+    <option value="Opt1">Option one</option>
+    <option value="Opt2">Option two</option>
+    <option value="Opt3">Option three</option>
+    </select>
+    <input type="submit" value="Submit"/>
+    
+</form >
+
+
+</body></html>

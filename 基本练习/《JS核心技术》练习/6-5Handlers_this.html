@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>6-5Handlers_this</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>
+    <script type="text/javascript">
+        //<![CDATA[
+       
+        window.onload = setObjects;
+
+        function setObjects() {
+            document.personData.firstName.onblur = testValue;
+        }
+
+        function testValue() {
+            alert("Hi "+this.value);
+        }
+
+
+
+        //]]>
+    </script>
+
+
+</head>
+<body >
+	<form name="personData">
+        First Name:<input type="text" name="firstName"/><br/><br/>
+        Second Nmae:<input type="text" name="secondName"/>
+
+    </form>
+
+</body>
+
+</html>

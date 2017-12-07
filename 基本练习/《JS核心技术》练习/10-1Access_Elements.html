@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>10-1Accessing/Modifying_Elements</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/> 
+    <script>
+        //<![CDATA[
+        function procImage() {
+            var img = document.images[0];
+            var imgAttr = img.align + "  " + img.alt + "  " + img.src + "  " + img.width + "  " + img.height;
+            alert(imgAttr);
+
+            img.src = "images/two.jpg";
+            img.width = "100";
+            img.height = "100";
+            img.alt = "Alternative";
+            img.align = "left";
+            img.title = "Upright";
+            document.close();
+            
+        }
+        
+        //]]>
+    </script>
+    
+</head>
+
+<body onload="procImage();">
+    <img src="images/one.jpg" alt="Dotty"/>
+    
+
+</body>
+</html>

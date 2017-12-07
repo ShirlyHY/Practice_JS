@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Exploring String+String fomatting methods+The backslash in RegExp+Find Date</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>
+</head>
+<body div id="test"></div>
+	<script type="text/javascript">
+//<![CDATA[
+        //4-4
+        var inputString = 'FirstName=Shelley,lastName=Powers,state=Missouri,statement="This is a test,of split"';
+        var arrayTokens = inputString.split(',', 5);
+
+        for (var i in arrayTokens) {
+            document.writeln(arrayTokens[i] + "<br/>");
+            var newTokens = arrayTokens[i].split('=');
+            document.writeln(newTokens[1] + "<br/>")
+           
+        }
+        var s = String.fromCharCode(97, 99, 99, 76);
+        document.writeln(s+"<br/>");
+
+        //4-5 String fomatting methods+The backslash in RegExp
+        var regExp = /\s\*/g;
+        var str = "This is *a *test *string";
+        var resulString = str.replace(regExp, '_');
+        document.writeln(resulString+"<br/>");
+
+
+        //4-6 Find Date
+        var regExp2 = /:\D*\s\d+\s\d+/;
+        var str2 = "This is a date :March 12 2005";
+        var resultString2 = str2.match(regExp2);
+        document.writeln("Date" + resultString2+"<br/>")
+
+        //4-7 Regular Expression Switch
+        var rgExp = /(\w*)-*(\w*)/;
+        var str3 = "Java--Script";
+        var resultString3 = str3.replace(rgExp, "$2*$1");
+        document.writeln(resultString3+"<br/>");
+      //  document.getElementById("test").innerHTML = resultString3+"!!";
+
+		//]]>
+	</script>
+
+</body>
+
+</html>

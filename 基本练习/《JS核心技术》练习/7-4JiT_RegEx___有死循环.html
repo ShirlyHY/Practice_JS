@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>7-4JiT_RegEx</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>
+    <script type="text/javascript">
+        //<![CDATA[
+       
+        if (window.addEventListener) {
+            window.addEventListener("load",setupEvents,false);
+        } else if (window.attachEvent) {
+            window.attachEvent("onload", setupEvents);
+        } else {
+            window.onload = setupEvents;
+        }
+        
+        function setupEvents(evnt) {
+            document.someForm.text2.onblur = checkRequired;
+            document.someForm.text1.onchange = validateField;            
+        }
+
+        function checkRequired(evnt) {
+            evnt = evnt ? evnt : window.event;
+            var target = evnt.target ? evnt.target : evnt.srcElement;
+
+            var txtInput = target.value;
+            if (txtInput == null || txtInput == "") {
+                alert("Value is required in field");
+            }
+        }
+    
+        function validateField(evnt) {
+            evnt = evnt ? evnt : window.event;
+            var target = evnt.target ? evnt.target : evnt.srcElement;
+            var rgEx = /^\d{3}[-]?\d{2}[-]?\d{4}$/g;
+
+            var OK = rgEx.exec(target.value);
+            if (!OK) {
+                alert("Not an ssn");
+            }
+        }
+
+            //]]>
+    </script>
+    
+</head>
+<body >
+	<form name="someForm">
+      <input type="text" name="text1"/></br>
+        <input type="password" name="text2"/></br>
+        <input type="hidden" name="text3" value="hidden value"/></br>
+        <textarea name="text4" cols="50" rows="10">The text area</textarea>
+        <input type="submit" value="Submit"/>
+    </form>
+
+</body>
+
+</html>

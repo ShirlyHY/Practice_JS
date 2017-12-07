@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Ajax练习</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>     
+    
+</head>
+
+
+
+<body >
+   <div id="dom1" >Ajax练习</div>
+    <div id="dom2"></div>
+    <script type="text/javascript">
+        //<![CDATA[
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("get", "https://api.github.com", false);
+        xhr.send(null);
+
+        if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+            var ResponseText = JSON.parse(xhr.responseText);
+           // alert(xhr.responseText);
+         /*   var div1 = document.getElementById('dom1');
+            div1.innerHTML = "Data：" + xhr.responseText;*///显示无格式的数据
+          
+            var dataArray = new Array();
+            for (var i in ResponseText) {
+                dataArray.push(i);
+            }
+            var content = '';
+            /*****************for-in遍历对象的时候只会获取对象的属性，不会遍历到属性值！！！！！！**************/
+            for (var j = 0, len = dataArray.length; j < len;j++){
+                content+="<ul>"+dataArray[j]+" : "+ResponseText[dataArray[j]]+"</ul>";
+            }
+            var div2 = document.getElementById('dom2');
+            div2.innerHTML = "UserList：" + content;
+        } else {
+            alert("Request was unseccessful:" + xhr.status);
+        }
+        //]]>
+    </script>
+
+</body>
+</html>

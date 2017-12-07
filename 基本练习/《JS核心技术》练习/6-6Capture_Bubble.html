@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//w3c//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0051)file:///D:/Document/JavaScript/Capture_Bubble.html? -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Capture/Bubble </title>
+
+    <script type="text/javascript">
+        //<![CDATA[
+		function writeX(evnt){
+		alert("Capturing:"+evnt.target+""+evnt.currentTarget);
+		return true;
+		}
+		function writeY(evnt){
+		alert("Bublling:"+evnt.target+""+evnt.currentTarget);
+		return true;
+		}
+		window.onload=setup;
+		function setup(evnt){
+
+		//capturing
+		document.addEventListener('click',writeX,false);
+		document.forms[0].addEventListener('click',writeX,false);
+		document.forms[0].elements[0].addEventListener('click',writeX,false);
+
+		//bubble up events 
+		document.addEventListener('click',writeY,true);
+		document.forms[0].addEventListener('click',writeY,true);
+		document.forms[0].elements[0].addEventListener('click',writeY,true);
+
+		}
+
+
+
+		//]]>
+    </script>
+</head>
+<body>
+<form style="background-color:#f00;width:100px;height:100px;padding:10px">
+	<input type="submit" value="Submit"><br>
+	
+
+</form>
+
+
+</body></html>

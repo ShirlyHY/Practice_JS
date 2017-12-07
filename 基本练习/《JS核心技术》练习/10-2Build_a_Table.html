@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>10-2Build_a_Table</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/> 
+    <script type="text/javascript">
+        //<![CDATA[
+        function procImage() {
+            var tb1 = document.getElementById("table1");
+            tb1.border = "5px";
+            tb1.cellPadding = "5px";
+
+            var img = document.getElementById("img1");
+            img.vspace = "10";
+
+            var row1 = tb1.insertRow(-1);
+
+            var cell1 = row1.insertCell(0);
+            var cell2 = row1.insertCell(1);
+
+            var txtAttr1 = document.createTextNode("src");
+            var txtAttr1Val = document.createTextNode(img.src);
+
+            cell1.appendChild(txtAttr1);
+            cell2.appendChild(txtAttr1Val);
+            
+        }
+        
+        //]]>
+    </script>
+    
+</head>
+
+<body onload="procImage();">
+    <img id="img1"src="images/one.jpg" />
+    <table id="table1">
+
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Build_a_Function</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>
+</head>
+<body>
+	<script type="text/javascript">
+		//<![CDATA[
+        //5-2Build_a_Function
+        var func = prompt("Enter function body:");
+        var x = prompt("Enter value of x:");
+        var y = prompt("Enter value of y:");
+
+        var op = new Function("x"," y", func);
+        var theAnswer = op(x, y);
+
+        document.writeln("Function is:" + func + "<br/>");
+        document.writeln("x is:" + x + "y is:" + y + "<br/>");
+        document.writeln("theAnswer is:" + theAnswer);
+
+        //5-3Pass me
+        function funcObject(x, y, z) {
+            alert(z(x,y));
+        }
+
+        funcObject(1, 2, function (x, y) { return x * y; });
+		//]]>
+	</script>
+
+</body>
+
+</html>

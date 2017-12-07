@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//w3c//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Event Handlers and this </title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    //Bug：光标离开“FirstName”后并没有显示“Hi ***”
+    <script type="text/javascript">
+        //<![CDATA[
+		window.onload=setobjects();
+		function setobjects(){
+		document.personData.firstName.onblur=testValue;
+		}
+		function testValue(){
+		alert("Hi "+this.value);
+		}
+
+		//]]>
+    </script>
+</head>
+<body>
+<form name="personData">
+	Firstname:<input type="text" name="firstName"/><br /><br/>
+	Lastname:<input type="text" name="lastName">
+
+</form>
+
+</body>
+</html>

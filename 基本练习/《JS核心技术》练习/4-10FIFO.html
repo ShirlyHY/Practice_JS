@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>FIFO</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>
+  
+</head>
+<body >
+    <script type="text/javascript">
+        //<![CDATA[
+        var fifoArray = new Array();
+        fifoArray.push("Apple");
+        fifoArray.push("Banala");
+        var ln = fifoArray.push("Cherry");
+
+        document.writeln("Length is " + ln + " and Array is " + fifoArray + "<br/>");
+
+        for (var i = 0; i < ln; i++){
+            document.writeln(fifoArray.shift() + "<br/>");
+        }
+
+        document.writeln("Length now is " + fifoArray.length+"<br/><br/>");
+
+        var fifonewArray = new Array();
+
+        fifonewArray.unshift("Learning");
+        fifonewArray.unshift("Java");
+        ln2=fifonewArray.unshift("Script");
+
+        document.writeln("Length2 is " + ln2 + "and Array2 is " + fifonewArray + "<br/>");
+
+        for ( i = 0; i < ln2; i++){
+            document.writeln(fifonewArray.pop() + "<br/>");
+            
+        }
+        document.writeln("Length2 now is " + fifonewArray.length);
+
+        var str = "apple.orange-strawberry,lemon-.lime";
+        var regExp = /[^a-z]+/g;
+        var resultstr = str.replace(regExp, ',');
+        //已知替换后数组的长度
+      /*  var arrayAll = resultstr.split(',',5);//
+        for (i in arrayAll) {
+            document.writeln(arrayAll[i]+"<br/>");
+        }*/
+        //替换后数组长度未知
+        var arrayAll = resultstr.split(',');
+        for (i = 0; i < arrayAll.length;i++) {
+            document.writeln(arrayAll[i] + "<br/>");
+        }
+
+
+
+		//]]>
+    </script>
+
+</body >
+
+</html>
