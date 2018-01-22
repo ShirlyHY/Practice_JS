@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>20171225_35</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>     
+    <script type="text/javascript">
+        //<![CDATA[
+
+      /*****某个网友的二分查找，计算方式很奇怪，但是结果是对的*************
+        var searchInsert = function(nums, target) {
+            var low=0,high=nums.length-2;
+            var mid=0;
+            while(low<=high){
+                mid=low+(high-low)/2;  //JS中未整除会出现浮点数，所以必须要转int型
+                mid=parseInt(mid);  
+                if(nums[mid]==target){
+                    alert(mid);
+                    return mid;
+                }
+                else if(nums[mid]>target){
+                    high=mid-1;
+                }
+                else{
+                    low=mid+1;
+                }
+            }
+            if(target>nums[low]){
+                alert(low+1);
+                return low+1;                
+            }
+            else{
+                alert(low);
+                return low;
+            }
+
+        };*/
+
+        var searchInsert = function(nums, target) {
+            var low=0,high=nums.length-1;
+            var mid=0;
+            while(low<high){
+                mid=(low+high)/2;  //JS中未整除会出现浮点数，所以必须要转int型
+                mid=parseInt(mid);  
+                if(nums[mid]==target){
+                   // alert(mid);
+                    return mid;
+                }
+                else if(nums[mid]>target){
+                    high=mid-1;
+                }
+                else{
+                    low=mid+1;
+                }
+            }
+            if(target>nums[low]){
+               // alert(low+1);
+                return low+1;                
+            }
+            else{
+              //  alert(low);
+                return low;
+            }
+
+        };
+//searchInsert([0,1,3,4],5);
+            //]]>
+    </script>
+</head>
+
+
+
+<body >
+   
+</body>
+</html>

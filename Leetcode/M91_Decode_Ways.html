@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>20180102—91</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>     
+    <script type="text/javascript">
+//<![CDATA[
+    /*****关键是如何进行分类，若path[i]代表前i个字符的解码个数，它依赖于path[i-1]和path[i-2];
+    1)s[i]==0:
+        若s[i-1]==1||s[i-1]==2,则path[i]=path[i-2](0只能和前一项结合)；否则返回0
+    2)s[i-1]==1||s[i-1]==2&&s[i]<=6:
+        path[i]=path[i-1]+path[i-2](此时i既可单独存在也可与前一项结合)
+    3)其他，即s[i]!=0且 2)也不成立
+        path[i]=path[i-1]******************/
+    var numDecodings = function(s) {
+    s=s.toString();//将输入的数字转为字符串格式，不然无法获取长度!!!!!!
+    if(s.length==0||s[0]=='0'){
+        return 0;
+    }
+    else if(s.length==1 && s[0]!='0'){
+        return 1;
+    }
+    var path=new Array();
+    path[0]=1;
+    if(s[1]==0){
+        if(s[0]==1||s[0]==2){
+            path[1]=1;
+        }
+        else{
+            return 0;
+        }
+    }
+    if(s[1]!=0){        
+        if(s[0]==1||(s[0]==2&&s[1]<=6)){
+            path[1]=2;
+        }
+        else{
+            path[1]=1;
+        }
+    }
+    for(var i=2;i<s.length;i++){
+        console.log(s.length);
+       if(s[i]=='0'){ 
+        if(s[i-1]==1||s[i-1]==2){
+            path[i]=path[i-2];
+        }
+        else{
+            return 0;
+        }
+       }
+       else{
+           if(s[i-1]==1||(s[i-1]==2 && s[i]<=6)){
+               path[i]=path[i-1]+path[i-2];
+           }
+           else{
+               path[i]=path[i-1];
+           }
+       }
+    }
+    console.log(s.length-1)
+    console.log(path[s.length-1])
+    return path[s.length-1];
+};
+numDecodings(101);
+            //]]>
+    </script>
+</head>
+
+
+
+<body >
+   
+</body>
+</html>

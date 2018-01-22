@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>20180116—17</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>     
+    <script type="text/javascript">
+//<![CDATA[
+    /*****利用递归，每个字母组合的长度就是数字串的长度**************/ 
+
+var letterCombinations = function(digits) {
+    var res=[];
+    var index=['','','abc','def','ghi','jkl','mno','pqrs','tuv','wxyz'];
+    digits=digits.toString();   
+    if(digits.length>0){        
+        var temp=arguments.callee(digits.substring(1,digits.length));//除去第一个数字的子串的所有字母组合方式
+        if(temp.length==0){
+            temp.push('');
+        }
+        for(var i=0;i<index[digits[0]].length;i++){ //第一个数字代表的所有字母
+            for(var j=0;j<temp.length;j++){  //第一个数字的字母与后面子串的每个组合再连接
+                res.push(index[digits[0]][i]+temp[j]);
+            }
+        }
+    }
+    return res;    
+};
+letterCombinations('2');
+
+            //]]>
+    </script>
+</head>
+
+
+
+<body >
+   
+</body>
+</html>

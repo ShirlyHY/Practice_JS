@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>20171227_16</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>     
+    <script type="text/javascript">
+        //<![CDATA[
+/******利用三个指针，先将数组排序，然后最外层从下标i为0到（length-3）开始循环，
+        内循环两个指针，左指针l从i+1开始增加，右指针r从下标length-1开始减小，
+         比较下标i、l、r三个数和与Target是否更接近，是的话更新最接近值，
+         三数和小于Target时，l++，三数和大于Target时，r--***********************************/
+var threeSumClosest = function(nums, target) {    
+    nums.sort(compare);//JS中的Sort默认是用字符串格式排序的！！！！需要添加比较函数确定顺序！！！！
+    alert(nums);
+    var closest=nums[0]+nums[1]+nums[2];
+    var diff=Math.abs(target-closest);    
+    for(var i=0;i<nums.length-2;i++){
+        var l=i+1,r=nums.length-1;
+        while(l<r){
+            var sum=nums[i]+nums[l]+nums[r];
+            if(Math.abs(target-sum)<diff){
+                diff=Math.abs(target-sum); 
+                closest=sum; 
+           //     alert(closest);              
+            }
+            if(sum<target){
+                l++;
+            }
+            else{
+                r--;
+            }
+        }
+    }
+    function compare(value1,value2){
+        return value1-value2;//比较函数：返回正数时交换两参数，否则不交换！！！！！！
+    }
+    //alert(closest);
+    return closest;
+};
+//threeSumClosest([1,2,4,8,16,32,64,128],82);
+            //]]>
+    </script>
+</head>
+
+
+
+<body >
+   
+</body>
+</html>

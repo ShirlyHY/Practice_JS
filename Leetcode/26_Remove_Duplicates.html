@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>20171224_26</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>     
+    <script type="text/javascript">
+        //<![CDATA[
+     //********初始版本极低效率算法，每比较一次更新一下数组*************       
+     /*   var removeDuplicates=function(nums){
+            var i=0;
+            while(i<nums.length){
+                if(nums[i]==nums[i+1]){
+                    console.log(nums[i]);
+                    for(var j=i+1;j<nums.length-1;j++){
+                        nums[j]=nums[j+1];                        
+                    }
+                    nums.length=nums.length-1;
+                }
+                else{
+                    i++;
+                }
+            }
+            return nums.length;
+           // alert(nums.length);
+        }
+      //  removeDuplicates([1,1,1,2,2,3,4,5,5])****************************/
+      var removeDuplicates=function(nums){
+          if(nums==null||nums.length==0){
+              return 0;
+          }
+          else{
+            var temp=nums[0];
+            var value=1;
+            for(var i=1;i<nums.length;i++){
+               if(nums[i]!=temp){
+                   temp=nums[i];
+                   nums[value]=nums[i];
+                   value+=1;
+               }
+            }
+            nums.length=value;
+            return value;
+           // alert(nums.length);
+          }           
+        }
+       // removeDuplicates([1,1,2]);
+
+
+            //]]>
+    </script>
+</head>
+
+
+
+<body >
+   
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>20180108_替换字母</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>     
+    <script type="text/javascript">
+//<![CDATA[
+    /*******思路：先将字符串全转为ascll码，ascll码替换后转为字符串
+            字符转ascll：str.charCodeAt()
+            ascll转字符：String.fromCharCode(code)***************/
+    var replaceLetters=function(str){
+        var arr=new Array();
+        //字符串转数组，，必须加引号！！！
+        //否则整个字符串会放入一个元素内！！！
+        arr=str.split('');
+        //将字符串全转为ascll码
+        for(var i=0;i<arr.length;i++){
+            arr[i]=arr[i].charCodeAt();
+        }
+        var i=0;
+        while(i<arr.length){
+            if(arr[i]>=97&&arr[i]<=122){
+                if(arr[i]==122){//z转为a，但是要大写A65
+                    arr[i]=65;
+                }
+                else if(arr[i]==100){//d转为e，大写E69
+                    arr[i]=69;
+                }
+                else if(arr[i]==104){//h转为i，大写I73
+                    arr[i]=73;
+                }
+                else if(arr[i]==110){//n转为o，大写O79
+                    arr[i]=79;
+                }
+                else if(arr[i]==116){//t转为u，大写U85
+                    arr[i]=85;
+                }
+                else{
+                    arr[i]=arr[i]+1;
+                }
+            }
+            i++;
+        }
+        //将替换后的ascll码转换为字符
+        for(var j=0;j<arr.length;j++){
+            arr[j]=String.fromCharCode(arr[j]);
+        }
+        var res=arr.join(''); //数组转字符串的引号也不能少！！！否则默认元素间会用逗号隔开！！！！       
+        alert(res);
+        return res;
+    }
+    replaceLetters('bing jian');
+            //]]>
+    </script>
+</head>
+
+
+
+<body >
+   
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>20180109—120</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>     
+    <script type="text/javascript">
+//<![CDATA[
+    /*****比较难，不容易想到循环变量计算过程******************/
+    var minimumTotal = function(triangle) {
+    var len=triangle.length;
+    if(len==0){
+        return 0;
+    }
+    var sum_arr=triangle[len-1];//从下往上计算，初始和数组是最后一行元素
+    for(var i=len-2;i>=0;i--){//倒数第二行开始，选择下一行两个相邻元素小的那个加到本行
+        for(var j=0;j<i+1;j++){//下一行元素会比上一行多一个，共i+1个
+            if(sum_arr[j]<sum_arr[j+1]){
+                sum_arr[j]=sum_arr[j]+triangle[i][j];
+            }
+            else{
+                sum_arr[j]=sum_arr[j+1]+triangle[i][j];
+            }
+        }
+    }
+    console.log(sum_arr[0]);
+    return sum_arr[0];
+};
+minimumTotal([
+    [2],
+    [3,4],
+    [6,5,7],
+    [4,1,8,3]
+])
+            //]]>
+    </script>
+</head>
+
+
+
+<body >
+   
+</body>
+</html>

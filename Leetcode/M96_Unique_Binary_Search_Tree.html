@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>20180107—96</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>     
+    <script type="text/javascript">
+//<![CDATA[
+    /******两个状态记录：
+     * G（n）:长度为n的序列的所有唯一的二叉树数量
+     * F（i,n），1<=i<=n：以i为根节点的二叉树的数量
+     * 则：1）G（n）=F(1,n)+F(2,n)+...+F(n,n)
+     * 2)F(i,n)=G(i-1)*G(n-i) 【当i做根节点时，1~i-1位于左子树，i+1~n位于右子树】
+     * 综合（1）（2）：G(n)=G(0)*G(n-1)+G(1)*G(n-2)+...+G(n-1)*G(0)*****************/
+    var numTrees = function(n) {
+    var G=new Array();
+    G[0]=1;
+    G[1]=1;
+    for(var i=2;i<=n;i++){
+        G[i]=0; //初始化每个元素，否则G[i]都是NAN！！！！
+        for(var j=0;j<i;j++){
+            G[i]=G[i]+G[j]*G[i-1-j];
+        }
+    }
+    alert(G[n]);
+    return G[n];
+};
+numTrees(2);
+            //]]>
+    </script>
+</head>
+
+
+
+<body >
+   
+</body>
+</html>

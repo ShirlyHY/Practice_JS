@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>20180112—264</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>     
+    <script type="text/javascript">
+    /*****动态规划问题，丑数：只包含因子2、3、5的数，比如14还包含因子7所以14不是丑数！！！！！！
+    规定丑数数组第一个是1，后面的丑数都是当前丑数数组内的元素乘以2/3/5，
+    记录每次每次乘积后最小的丑数，加入丑数数组***************/ 
+var nthUglyNumber = function(n) {
+    var U=new Array();
+    U[0]=1;
+    var index_2=0,index_3=0,index_5=0;
+    var val_2=2,val_3=3,val_5=5;
+    var val=0;
+    for(var i=1;i<n;i++){
+        val=Math.min(val_2,Math.min(val_3,val_5))
+        if(val==val_2){
+            U[i]=val_2;
+            index_2++;
+          //  val_2=index_2*2;   //这种方式会产生14这种包含其他因子的非丑数！！！！
+           val_2=U[index_2]*2;   //用现有的丑数元素乘以2或3或5！！！！
+        }
+        if(val==val_3){   //不能用else if!!!否则会有重复的丑数！！！
+            U[i]=val_3;
+            index_3++;
+          //  val_3=index_3*3;
+            val_3=U[index_3]*3;
+        }
+        if(val==val_5){   //不能用else if!!!否则会有重复的丑数！！！
+            U[i]=val_5;
+            index_5++;
+          //  val_5=index_5*5;
+            val_5=U[index_5]*5;
+        }
+    }
+    return U[n-1];
+};
+nthUglyNumber(3)
+            //]]>
+    </script>
+</head>
+
+
+
+<body >
+   
+</body>
+</html>

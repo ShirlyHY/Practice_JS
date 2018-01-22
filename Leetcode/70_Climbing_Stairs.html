@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>20171229—70</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>     
+    <script type="text/javascript">
+        //<![CDATA[
+            //斐波那契数列问题,但是这里没有第一项：1，2，3，5，8……
+        var climbStairs = function(n) {
+    if(n==1){
+        return 1;//原数列第0项也为1
+    }   
+    else{
+        var n1=1,n2=1;
+        var temp=0;
+        for(var i=1;i<n;i++){ 
+            temp=n1+n2;
+            n1=n2;
+            n2=temp;
+        }
+        alert(temp);
+        return temp;
+    }
+};
+climbStairs(4);
+            //]]>
+    </script>
+</head>
+
+
+
+<body >
+   
+</body>
+</html>

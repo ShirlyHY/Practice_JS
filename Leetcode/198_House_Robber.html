@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>20171229—198</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>     
+    <script type="text/javascript">
+   var rob = function(nums) {
+    /*****动态规划问题，递推关系：f(n)=max[f(n-1),f(n-2)+nums[n-1]]此方法空间复杂度O（1）,没有空间复杂限制的话
+       可以新定义一个数组存放从nums.length为1开始到n对应的最大值******************/
+       //长度是length***!!!!!!!!!!!!!!!!!!!!!!****不是lengh****!!!!!!!!!!!!!!!!!!!!!!
+    if(nums.length==0){
+        return 0;
+    }
+    else if(nums.length==1){
+        return nums[0];
+    }
+    else if(nums.length==2){
+        return (nums[0]>nums[1])?nums[0]:nums[1];
+    }
+    else{
+       var n_2=nums[0];
+        var n_1=Math.max(nums[0],nums[1]);
+        var temp=0;
+        for(var i=2;i<nums.length;i++){
+            temp=Math.max(n_1,n_2+nums[i]);
+            n_2=n_1;
+            n_1=temp;
+        }
+        alert(temp);
+        return temp;
+    }
+};
+rob([1,2,3]);
+            //]]>
+    </script>
+</head>
+
+
+
+<body >
+   
+</body>
+</html>

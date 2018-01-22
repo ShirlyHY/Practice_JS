@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>20171229—198</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>     
+    <script type="text/javascript">
+        //<![CDATA[
+  /*****动态规划问题，更新两个变量，一个是到目前买的最低价格low_price,
+            另一个是日期在最低价格之后的卖出价格产生的最大收益*********/
+            var maxProfit = function(prices) {
+    if(prices.length==0 || prices.length==1){
+        return 0;
+    }
+    else{
+        var low_price=prices[0];
+        var max=0;    
+        for(var i=1;i<prices.length;i++){
+            low_price=Math.min(low_price,prices[i]);
+            max=Math.max(max,(prices[i]-low_price));
+        }
+        return max;
+    }
+};
+            //]]>
+    </script>
+</head>
+
+
+
+<body >
+   
+</body>
+</html>

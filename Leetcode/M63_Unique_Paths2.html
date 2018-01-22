@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>20180101—63</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>     
+    <script type="text/javascript">
+
+    /*****动态规划问题，在62题基础上，先判断是否有障碍物，再计算路径；上边界和左边界初始化也要考虑障碍；
+    对于格点（i,j），只能从上格点（i-1,j）或者左格点（i,j-1）到达，
+    并且两条路径不重复，因此，Path[i][j]=Path[i-1][j]+Path[i][j-1]******************/
+/*var uniquePaths = function(m, n) {
+    if(m==0||n==0){
+        return 0;
+    }
+    //初始化二维数组
+    var arr=new Array();
+    for(var i=0;i<m;i++){
+        arr[i]=new Array();
+        for(var j=0;j<n;j++){
+            arr[i][j]=0;
+        }
+    }
+    //将左边界和上边界值置1（只能从上来或者从左来1种方式）
+    for(var i=0;i<m;i++){
+        arr[i][0]=1;        
+    }
+    for(var j=0;j<n;j++){
+        arr[0][j]=1;
+    }
+    //计算到每格的路径数
+    for(var i=1;i<m;i++){
+        for(var j=1;j<n;j++){
+            arr[i][j]=arr[i-1][j]+arr[i][j-1];
+        }
+    }
+alert(arr[m-1][n-1]);
+    return arr[m-1][n-1];
+};
+uniquePaths(2,3);*/
+
+var uniquePathsWithObstacles = function(obstacleGrid) {
+    var m=obstacleGrid.length;//行数
+    var n=obstacleGrid[0].length;//列数
+
+    if(m==0||n==0){
+        return 0;
+    }
+    else if(obstacleGrid[0][0]==1){//入口有障碍路径为0
+        return 0;
+    }
+      //初始化路径数二维数组
+      var arr=new Array();
+    for(var i=0;i<m;i++){
+        arr[i]=new Array();
+        for(var j=0;j<n;j++){
+            arr[i][j]=0;
+        }
+    }
+    arr[0][0]=1;//入口路径只有1条
+    for(var i=1;i<m;i++){
+        //左边界，如果当前点没有障碍物并且上一点可到达，那么该点可走
+        if(obstacleGrid[i][0]!=1 && arr[i-1][0]!=0){
+            arr[i][0]=1;
+        }
+    }
+    for(var i=1;i<n;i++){
+        //左边界，同理上边界
+        if(obstacleGrid[0][i]!=1 && arr[0][i-1]!=0){
+            arr[0][i]=1;
+        }
+    }
+    console.log(arr);
+    for(var i=1;i<m;i++){
+        for(var j=1;j<n;j++){
+            if(obstacleGrid[i][j]!=1){
+                arr[i][j]=arr[i-1][j]+arr[i][j-1];
+            }
+            else{
+                arr[i][j]=0;//这里可以不赋值，默认也为0
+            }
+        }       
+    }  
+    return arr[m-1][n-1];
+};
+uniquePathsWithObstacles([[0]])
+            //]]>
+    </script>
+</head>
+
+
+
+<body >
+   
+</body>
+</html>

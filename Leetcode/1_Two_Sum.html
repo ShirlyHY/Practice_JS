@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>20171224_1</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>     
+    <script type="text/javascript">
+        //<![CDATA[
+            
+        var twoSum=function(nums,target){
+            var targetArr=[];
+            if(nums==null||target==null){
+                console.log('和与数组都不能为空！');
+            }
+            else if(nums instanceof Array!=true){
+                console.log('格式应为数组！');
+            }
+            else if(typeof(target)!='number'){
+                console.log('和应为数字！');
+            }
+            else{                
+                for(var i=0;i<nums.length;i++){
+                    for(var j=i+1;j<nums.length;j++){
+                        if((nums[i]+nums[j])==target){
+                        targetArr.push(i);
+                        targetArr.push(j);
+                        }
+                    }
+                }
+            }
+            alert(targetArr);
+        }
+        twoSum([2,11,7,15],9);
+        /************提交代码*******************
+    var twoSum=function(nums,target){
+        var targetArr=[];
+        for(var i=0;i<nums.length;i++){
+                    for(var j=i+1;j<nums.length;j++){
+                        if((nums[i]+nums[j])==target){
+                        targetArr.push(i);
+                        targetArr.push(j);
+                        }
+                    }
+        }
+        return targetArr;
+    }
+        */
+            //]]>
+    </script>
+</head>
+
+
+
+<body >
+   
+</body>
+</html>

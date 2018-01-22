@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>20171225_27</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>     
+    <script type="text/javascript">
+        //<![CDATA[
+    //这题跟26题很相似
+    var removeElement = function(nums, val) {
+        var res=0;
+        if(nums==null||nums.length==0){
+           // alert(res);
+            return 0;            
+        }
+        else if(val==null){
+            res=nums.length;
+           // alert(res);
+            return res;          
+        }
+        else{            
+            for(var i=0;i<nums.length;i++){
+                if(nums[i]!=val){
+                    nums[res]=nums[i];
+                    res+=1;
+                }
+            }       
+            //alert(res);    
+            return res;
+        }
+    };
+//removeElement([1,1,1]);
+            //]]>
+    </script>
+</head>
+
+
+
+<body >
+   
+</body>
+</html>

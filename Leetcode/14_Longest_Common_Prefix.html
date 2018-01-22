@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>20180112—14</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>     
+    <script type="text/javascript">
+//<![CDATA[
+    /***这道题网友们基本都是C++写的第一眼看起来会觉得有点看不懂，
+    题目理解：给出一个数组，每个数组的元素都是一个字符串，求所有字符串最长公共前缀，用res数组存储
+    分析：首先要找出数组中最短字符串的长度，最长公共前缀不会超过这个长度min_len，
+    之后将每个字符串从第一位开始对比，最多对比min_len次，所有字符串该位置元素相同则将该元素放入res中，
+    一旦有元素不同直接返回res数组，记得要返回子字符串，所以数组要转为字符串格式****************/ 
+    var longestCommonPrefix = function(strs) {
+        var min_len=10000;
+        var res=new Array();
+        if(strs.length==0||strs==null){
+            return '';
+        }
+        if(strs.length==1){
+            return strs[0];
+        }
+        for(var i=0;i<strs.length;i++){  //找到所有字符串的最短长度，比较最多循环最短长度次
+            min_len=(strs[i].length<min_len)?strs[i].length:min_len;
+        }
+        if(min_len==0){
+            return '';
+        }
+        for(var j=0;j<min_len;j++){  //每次循环比较同下标位置对应的元素是否一样，长度为min_len
+            for(var i=0;i<strs.length;i++){
+                if(strs[i][j]!=strs[0][j]){
+                    return res.join('');
+                }
+            }
+            res.push(strs[0][j]);
+        }
+        return res.join('');    
+    };
+    longestCommonPrefix(['abcdefg','abcdefgtyu','abcdfghijk','abcef']);
+
+            //]]>
+    </script>
+</head>
+
+
+
+<body >
+   
+</body>
+</html>

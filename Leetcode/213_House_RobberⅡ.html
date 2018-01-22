@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>20180111—213</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>     
+    <script type="text/javascript">
+   var rob = function(nums) {
+    /*****动态规划问题，第一户与最后一户未相邻时（HouseRoberⅠ）的递推关系：f(n)=max[f(n-1),f(n-2)+nums[n-1]]此方法空间复杂度O（1）,没有空间复杂限制的话
+       可以新定义一个数组存放从nums.length为1开始到n对应的最大值***
+       第一户与最后一户相邻时，分为两种Ⅰ的情况：1）不包括第一户；2）不包括最后一户***************/
+       //长度是length***!!!!!!!!!!!!!!!!!!!!!!****不是lengh****!!!!!!!!!!!!!!!!!!!!!!
+    if(nums.length==0){
+        alert('0');
+        return 0;
+    }
+    else if(nums.length==1){
+        return nums[0];
+    }
+    else if(nums.length==2){
+        return (nums[0]>nums[1])?nums[0]:nums[1];
+    }
+    else{
+        return Math.max(sub_rob(nums,0,nums.length-2),sub_rob(nums,1,nums.length-1));       
+    }
+    function sub_rob(nums,start,end){
+        if(end-start==1){
+            return Math.max(nums[start],nums[end]); //只比较两个元素
+        }
+        var n_2=nums[start];
+        var n_1=Math.max(nums[start],nums[start+1]);
+        var temp=0;
+        for(var i=start+2;i<end+1;i++){   //end需要+1，因为end是最后一个可以抢劫的住户下标
+            temp=Math.max(n_1,n_2+nums[i]);
+            n_2=n_1;
+            n_1=temp;
+        }
+        alert(temp);
+        return temp;
+    }
+};
+rob([]);
+            //]]>
+    </script>
+</head>
+
+
+
+<body >
+   
+</body>
+</html>

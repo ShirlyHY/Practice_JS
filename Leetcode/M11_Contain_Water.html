@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>20171227_11</title>
+<meta http-equiv="content-type" content="text/html";charset="utf-8"/>     
+    <script type="text/javascript">
+        //<![CDATA[
+/*********属于一种贪心策略*********************/
+var maxArea = function(height) {
+    var l=0,r=height.length-1,maxS=0,temp=0;
+    while(l<r){
+        temp=(r-l)*(height[l]>height[r]?height[r]:height[l]);
+        if(temp>maxS){
+            maxS=temp;
+        }
+        if(height[l]>height[r]){
+            r--;
+        }
+        else{
+            l++;
+        }
+    }
+    alert(maxS);
+    return maxS;
+};
+maxArea([1,2,3,6,5]);
+
+            //]]>
+    </script>
+</head>
+
+
+
+<body >
+   
+</body>
+</html>
